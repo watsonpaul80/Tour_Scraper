@@ -102,12 +102,6 @@ function getHorseNotes(content) {
         const formProfileNotes = content.slice(formProfileIndex + 'Form Profile'.length, trainerSaysIndex).trim();
         const trainerSaysNotes = content.slice(trainerSaysIndex + 'Trainer says'.length).trim();
         return `Form Profile\n${formProfileNotes}\n\nTrainer says\n${trainerSaysNotes}`;
-    } else if (formProfileIndex !== -1) {
-        const formProfileNotes = content.slice(formProfileIndex + 'Form Profile'.length).trim();
-        return `Form Profile\n${formProfileNotes}`;
-    } else if (trainerSaysIndex !== -1) {
-        const trainerSaysNotes = content.slice(trainerSaysIndex + 'Trainer says'.length).trim();
-        return `Trainer says\n${trainerSaysNotes}`;
     }
 
     return null;
@@ -118,15 +112,15 @@ async function searchAndAddToTracker(page, horseName, trainerName, horseNotes, a
         // Set cookies here
         await page.setCookie(
             // Your cookie objects here
-            { name: '.AspNet.ApplicationCookie', value: 'vkwE8ANOrPFEcWEcyJWzxWOB1ZskuOjErsvcvEFg0GDdOkiRcHmxmfHChvP8hx8osdOyiMTSL1navK4TXdFQgti6Ad7YISo-EuGV7Em_Xs6lCFE3CzrJdILTEwjMoH8zRnu_9R1gvuD-J6bSHJwsdcqpeba-67dVqWsXoloxolqmBZtk5Tr3UEdz15EaFBVr88z24-vy-Re8u1nol3JbevHGdlqzkLaauSGjBTrQk-EWiZDBCWBSFPj4WVDA4jrwwO_ATndksFnimM3PJ3fyd7CcQUseJDeR0xUU495IvvNG40xcKEuj2-t1c6TW15WL9HXdkPdAuMLaM46QmmpCjfdHIAUZ50Q1_12Br4rd4XpRhbaLONWG3RPSBS41KPuK2qSTYC318JeiU_OKpV_ymHtn-IO-M_fqGBqHP2P7GNttesvNEyfRKfEuOtXmjfq2f2qPfg', domain: '.timeform.com' },
-            { name: 'ARRAffinitya340a76e318606afba243e3c7f38ee20153cebf13a5a2b2a1bc42681bae64418', value: '', domain: '.www.timeform.com' },
-            { name: 'ASLBSA', value: '0003326263ba1948e6760915b34882bd1301e13eb52bf8650bf28e131726fced5573b3f387a83ed7db73687a5ef56f408e0a973d676d868376fd7538bf20ec581f309a14c7071f248ca3a50fc96afcd0009f273e0acbdf19793a836aa4dbd2f0b51d', domain: 'www.timeform.com' },
-            { name: 'ASLBSACORS', value: '0003326263ba1948e6760915b34882bd1301e13eb52bf8650bf28e131726fced5573b3f387a83ed7db73687a5ef56f408e0a973d676d868376fd7538bf20ec581f309a14c7071f248ca3a50fc96afcd0009f273e0acbdf19793a836aa4dbd2f0b51d', domain: 'www.timeform.com' },
-            { name: 'ASP.NET_SessionId', value: 'kimdzwjbfyliqp0xv0krflwy', domain: 'www.timeform.com' },
-            { name: 'OptanonAlertBoxClosed', value: '2024-03-20T12:20:34.754Z', domain: '.timeform.com' },
-            { name: 'OptanonConsent', value: 'isGpcEnabled=0&datestamp=Wed+Mar+20+2024+13%3A27%3A44+GMT%2B0000+(Greenwich+Mean+Time)&version=6.39.0&isIABGlobal=false&hosts=&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0004%3A1&AwaitingReconsent=false&geolocation=%3B', domain: '.timeform.com' },
-            { name: 'TFM', value: 'DeviceId=46452746-a5c6-4d7e-bb3d-ebde0d4029a6', domain: 'www.timeform.com' },
-            { name: '__RequestVerificationToken_L2hvcnNlLXJhY2luZw2', value: '6ef-Cs-AwrtiSMNsRVlNFamI94CAmlmlVFdQQu5OjKVYZzjdIBoZ0SykBuJRK3qLk7kqcd5ojYS0qdnZ9Ay9EEM9tlQ1', domain: 'www.timeform.com' }
+            { name: '.AspNet.ApplicationCookie', value: 'O70QPkteZwYTQ2L_KMc2zQg9nFUTBBsQneCE7b7qmKuJoaBtwn_ZohNDqsMXkqc-D97hGujr8EGIeZNdwsNjaBIGVelxo3bzQrQamQnqPmSDaxG4vpsN-966BRF37pGuowQPsDQMeh-skUSo7WtjwGqHWY6br95U9C_p7J9S1F5XE4qf21QRNAgOjQdVlQE2PsS9QVSCmnNzSZRY-N0QuiKZD9rc3IW70TSZ8rJvcVUizkdrHfRuarZRG94Ow0_VBcqa4umxT4IkQaVJfEXf4Dgwf_gbTOWTDzusLkFs6CKvR7dUSzinfdgHmI5tINACrRQiv_tLqQ-9Rsxnrxee2Fz59mVLeg5Grb6n0ElsO5YKye6FNK92A7tQPubVRu2oITNkwlHU0rsqgj600TcToQv98_JpCg1RfOO2eQBgC3pZHb1Mb85xrdwTCdNQYjOSFrKtAg', domain: '.timeform.com' },
+            { name: '8822bf0968f987766d394fcb39b3e1e02adf468ae02eb0e7287c47abc373715c', value: '', domain: '.www.timeform.com' },
+            { name: 'ASLBSA', value: '00039a14c7071f248ca3a50fc96afcd0009f273e0acbdf19793a836aa4dbd2f0b51d', domain: 'www.timeform.com' },
+            { name: 'ASLBSACORS', value: '00039a14c7071f248ca3a50fc96afcd0009f273e0acbdf19793a836aa4dbd2f0b51d', domain: 'www.timeform.com' },
+            { name: 'ASP.NET_SessionId', value: 'sl0pvnmecdld0b1rufzqop5g', domain: 'www.timeform.com' },
+            { name: 'OptanonAlertBoxClosed', value: '2024-06-12T08:04:07.015Z', domain: '.timeform.com' },
+            { name: 'OptanonConsent', value: 'isGpcEnabled=0&datestamp=Mon+Jun+17+2024+10%3A04%3A57+GMT%2B0100+(British+Summer+Time)&version=6.39.0&isIABGlobal=false&hosts=&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0004%3A1&geolocation=%3B&AwaitingReconsent=false', domain: '.timeform.com' },
+            { name: 'TFM', value: 'DeviceId=d9261ec6-5263-4958-abcf-70bc354fb184', domain: 'www.timeform.com' },
+            { name: '__RequestVerificationToken_L2hvcnNlLXJhY2luZw2', value: 'u9iabNvyj4LvUTRp52xgPRf5GIluLygZ24Zo1xTgrE0GpqgLBrc5leLmNIP4rOa0pJZq4g_0tVTUJGakB6Hg5rCRC1o1', domain: 'www.timeform.com' }
         );
         await page.goto('https://www.timeform.com/horse-racing/');
         console.log(`Searching for horse: ${horseName}`);
