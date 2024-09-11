@@ -1,20 +1,33 @@
 const Puppeteer = require('puppeteer');
 const fs = require('fs');
 
-const INDEX_PAGE = 'https://www.attheraces.com/stable-tours';
-const TRAINERS_SELECTOR = 'a[href^="/stable-tours/"].a--plain';
+const TRAINERS_SELECTOR = 'a[href^="/royal-ascot/stable-tours/"].a--plain';
 const HORSES_SELECTOR = 'article > div[id^="expandable"] > .panel-content > .push--small:not(.table-wrapper)';
 
 const date = new Date();
 const pad = number => number < 10 ? '0' + number : number;
 const stringDate = `${pad(date.getDate())}/${pad(date.getMonth() + 1)}/${date.getFullYear() % 2000}`;
 
-async function init() {
-    try {
-        // Create the output directory if it doesn't exist
-        if (!fs.existsSync('./output')) {
-            fs.mkdirSync('./output');
-        }
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+async function getUserInput() {
+  return new Promise((resolve) => {
+    readline.question('Enter a custom URL (Press Enter to use default): ', (url) => {
+      resolve(url.trim());
+      readline.close();
+    });
+  });
+}
+
+async function init(customUrl) {
+  try {
+    // Create the output directory if it doesn't exist
+    if (!fs.existsSync('./output')) {
+      fs.mkdirSync('./output');
+    }
 
     console.log('[+] Launching browser');
     const browser = await Puppeteer.launch();
@@ -97,4 +110,7 @@ async function retryInit(customUrl, maxRetries = 3, retryDelay = 5000) {
   }
 }
 
-retryInit();
+(async () => {
+  const customUrl = await getUserInput();
+  await retryInit(customUrl);
+})();
