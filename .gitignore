@@ -1,0 +1,17 @@
+# Node modules and environment files
+node_modules/
+user_data/
+.env
+package-lock.json
+output/
+puppeteer_user_data/
+
+# Logs
+*.log
+
+# VSCode settings
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
