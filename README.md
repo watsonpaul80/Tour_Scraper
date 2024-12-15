@@ -2,10 +2,10 @@
 
 A comprehensive web scraping tool that collects and tracks stable tours from [At The Races](https://www.attheraces.com/stable-tours) and updates horse notes on [Timeform](https://www.timeform.com/).
 
-## 📑 Table of Contents
+## 💑 Table of Contents
 
 - [✨ Features](#-features)
-- [⚙️ Prerequisites](#️-prerequisites)
+- [⚙️ Prerequisites](#%ef%b8%8f-prerequisites)
 - [🚀 Setup](#-setup)
 - [🔐 Environment Variables](#-environment-variables)
 - [📖 Usage](#-usage)
@@ -19,6 +19,7 @@ A comprehensive web scraping tool that collects and tracks stable tours from [At
 - **Stable Tour Scraping**: Efficiently scrapes stable tour information for each trainer listed on At The Races.
 - **Horse Notes Tracking**: Automatically logs into Timeform to add or update horse notes.
 - **Retry Mechanism**: Allows retrying updates for horses that failed to save on the first attempt.
+- **Alert Automation**: Ensures all horse tracker alerts (declaration, morning, evening, and result) are enabled on Timeform.
 - **Interactive Menu**: Easily run different features of the scraper using an interactive menu with `start.bat`.
 
 ## ⚙️ Prerequisites
@@ -88,7 +89,14 @@ This project provides several scripts to perform different functions.
    node failedhorses.js
    ```
 
-4. **Run All Commands with Interactive Menu**:
+4. **Ensure All Tracker Alerts Are Enabled**:
+   Logs into Timeform and ensures that alerts (declaration, morning, evening, and result) are enabled for all horses in your tracker.
+
+   ```bash
+   node ensure_bell_on.js
+   ```
+
+5. **Run All Commands with Interactive Menu**:
    Use `start.bat` to launch an interactive menu that allows you to choose and run each function of the scraper easily.
 
    ```bash
@@ -102,6 +110,7 @@ Here's a quick breakdown of each key script:
 - `collect.js`: Scrapes the stable tours on At The Races and saves each trainer's notes to an individual file in the output folder.
 - `trackerlogin.js`: Logs into Timeform using credentials from the `.env` file and updates horse notes based on the scraped data.
 - `failedhorses.js`: Attempts to re-save notes for horses that failed to save on the first attempt, allowing for error handling and retries.
+- `ensure_bell_on.js`: Logs into Timeform and ensures that alerts (declaration, morning, evening, and result) are enabled for all horses in your tracker.
 - `start.bat`: Provides an interactive menu to run the main commands in the project.
 
 ## 🤝 Contributing
@@ -117,3 +126,4 @@ Contributions are always welcome! To get started:
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 Enjoy using the ATR Stable Tour Scraper! 🏇 If you have any questions, feel free to reach out or open an issue.
+
