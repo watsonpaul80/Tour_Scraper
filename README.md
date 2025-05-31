@@ -2,14 +2,14 @@
 
 A comprehensive web scraping tool that collects and tracks stable tours from [At The Races](https://www.attheraces.com/stable-tours) and updates horse notes on [Timeform](https://www.timeform.com/).
 
-## 💑 Table of Contents
+## 📑 Table of Contents
 
 - [✨ Features](#-features)
 - [⚙️ Prerequisites](#%ef%b8%8f-prerequisites)
 - [🚀 Setup](#-setup)
 - [🔐 Environment Variables](#-environment-variables)
 - [📖 Usage](#-usage)
-  - [Main Commands](#main-commands)
+- [Main Commands](#main-commands)
 - [📜 Scripts Overview](#-scripts-overview)
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
